@@ -13,8 +13,10 @@ Then run the following commands:
 tar -xvf getch-1.0-python2.tar.gz
 cd getch-1.0/
 python setup.py build
-python setup.py install
+sudo python setup.py install
 ```
+
+### CircuitPython (for GPS)
 
 
 ## Sources:
