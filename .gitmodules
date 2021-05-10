@@ -1,0 +1,3 @@
+[submodule "ping-python"]
+	path = ping-python
+	url = https://github.com/bluerobotics/ping-python.git
