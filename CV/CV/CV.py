@@ -7,7 +7,9 @@ from matplotlib import pyplot as plt
 ####https://www.geeksforgeeks.org/detect-an-object-with-opencv-python/ 
 
 # Opening image
+#def find_Centroid(frame):
 #img = Image.open("test.jpeg")
+#img = Image.open("redbag.jpg")
 img = Image.open("redbag.jpg")
 #img.show()
 img = img.resize((400, 300), Image.ANTIALIAS)
@@ -44,19 +46,19 @@ ret,thresh = cv2.threshold(gray_image,127,255,0)
 contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE ,cv2.CHAIN_APPROX_SIMPLE)
 centroids = [] 
 for c in contours:
-   # calculate moments for each contour
-   M = cv2.moments(c)
-   # calculate x,y coordinate of center
-   if M["m00"] != 0:
-       cX = int(M["m10"] / M["m00"])
-       cY = int(M["m01"] / M["m00"])
-   #else:   
-       #cX, cY = 0, 0
-   #cX = int(M["m10"] / M["m00"])
-   #cY = int(M["m01"] / M["m00"])
-       centroids.append((cX, cY))
-       origCV = cv2.circle(origCV, (cX, cY), 5, (255, 255, 255), -1)
-       origCV = cv2.putText(origCV, "centroid", (cX - 25, cY - 25),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
+    # calculate moments for each contour
+    M = cv2.moments(c)
+    # calculate x,y coordinate of center
+    if M["m00"] != 0:
+        cX = int(M["m10"] / M["m00"])
+        cY = int(M["m01"] / M["m00"])
+    #else:   
+        #cX, cY = 0, 0
+    #cX = int(M["m10"] / M["m00"])
+    #cY = int(M["m01"] / M["m00"])
+        centroids.append((cX, cY))
+        origCV = cv2.circle(origCV, (cX, cY), 5, (255, 255, 255), -1)
+        origCV = cv2.putText(origCV, "centroid", (cX - 25, cY - 25),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
 # display the image
 print(centroids)
 cv2.imshow("Image", origCV)
