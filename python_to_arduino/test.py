@@ -10,7 +10,7 @@ serialcomm = serial.Serial('/dev/ttyACM0',9600)
 serialcomm.timeout = 1
 
 while True:
-    i = input("input(on/off): ").strip()
+    i = raw_input("Enter a char:\n")
     if (i == "done"):
         print("finished program")
         break
