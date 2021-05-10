@@ -9,7 +9,8 @@ from matplotlib import pyplot as plt
 # Opening image
 def find_Centroid(frame):
     #img = Image.open("test.jpeg")
-    img = Image.open("redbag.jpg")
+    #img = Image.open("redbag.jpg")
+    img = Image.open(frame)
     #img.show()
     img = img.resize((400, 300), Image.ANTIALIAS)
     origCV = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR)
